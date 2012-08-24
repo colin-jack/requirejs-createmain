@@ -1,0 +1,25 @@
+{
+    "name" : "requireJsMainFileCreator",
+    "version" : "0.0.1",
+    "description" : "You point it a directory and it'll generate a main.js file that requires all the contained JS files using require.js.",
+    "main" : "index",
+    "author": "Colin Jack",
+
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/colin-jack/namespace.git"
+    },
+
+    "homepage": "https://github.com/olin-jack/namespace",
+
+    "dependencies": {
+        "winston": "*",
+        "async": "*",
+        "underscore": "*"
+    },
+    
+    "devDependencies": {
+        "vows": "0.6.x"
+    },
+    "engines": { "node": ">= 0.4.0" }
+}
