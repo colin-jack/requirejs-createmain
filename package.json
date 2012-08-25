@@ -15,7 +15,8 @@
     "dependencies": {
         "winston": "*",
         "async": "*",
-        "underscore": "*"
+        "underscore": "*",
+        "filewalker": "*"
     },
     
     "devDependencies": {
