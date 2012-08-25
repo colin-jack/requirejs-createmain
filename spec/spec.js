@@ -4,12 +4,13 @@ var vows = require('vows'),
     fs = require('fs');
 
 var directoryContainingJsFiles = __dirname + "/simpleRequireRoot";
-var outputFilePath = __dirname + "/main.js";
+var outputFileName = "main.js";
+var outputFilePath = __dirname + "/" + outputFileName;
  
 vows.describe('generate require file for all files in directory (integration)').addBatch({
     'when generating main require file for a simple directory structure': {
         topic: function () { 
-            underTest.generateFile(directoryContainingJsFiles, "*.js", outputFilePath, this.callback);
+            underTest.generateFile(directoryContainingJsFiles, "*.js", outputFileName, this.callback);
             return fs.readFileSync(outputFilePath);
         },
 

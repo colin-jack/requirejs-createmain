@@ -19,8 +19,9 @@
     },
     
     "devDependencies": {
-        "vows": "0.6.x"
+        "vows": "0.6.x",
+        "node-inspector": "*"
     },
-    
+
     "engines": { "node": ">= 0.4.0" }
 }
