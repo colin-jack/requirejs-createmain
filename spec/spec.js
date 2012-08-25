@@ -8,9 +8,7 @@ var outputFilePath = __dirname + "/main.js";
 vows.describe('generate require file for all files in directory').addBatch({
     'when generating main require file for a simple directory structure': {
         topic: function () { 
-            underTest.generateFile(directoryContainingJsFiles, "*.js", outputFilePath, this.callback);
-            return underTest;
-            //underTest.generateFile(directoryContainingJsFiles, "*.js", outputFilePath, this.callback);
+            return underTest.generateFile(directoryContainingJsFiles, "*.js", outputFilePath, this.callback);
         },
 
         'should not get an error': function (err, result) {            
