@@ -1,8 +1,8 @@
 var MainFileGenerator = require('./lib/MainFileGenerator')
 
 module.exports = {
-		generateFile: function(directoryToScan, pattern, outputFilePath, done) {
-			var fileGenerator = new MainFileGenerator(directoryToScan, pattern, outputFilePath);
+		generateFile: function(directoryToScan, outputFilePath, done) {
+			var fileGenerator = new MainFileGenerator(directoryToScan, outputFilePath);
 			fileGenerator.generate(done);
 		}
 	};
