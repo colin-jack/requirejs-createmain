@@ -10,7 +10,8 @@ var outputFilePath = __dirname + "/" + outputFileName;
 vows.describe('generate require file for all files in directory (integration)').addBatch({
     'when generating main require file for a simple directory structure': {
         topic: function () { 
-            underTest.generateFile(directoryContainingJsFiles, "*.js", outputFileName, this.callback);
+            underTest.generateFile(directoryContainingJsFiles, outputFileName, this.callback);
+
             return fs.readFileSync(outputFilePath);
         },
 
