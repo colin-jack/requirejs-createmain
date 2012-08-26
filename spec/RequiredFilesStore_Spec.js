@@ -22,7 +22,7 @@ vows.describe('add some js and some other files to required files store').addBat
         },
 
         'should generate the correct require string containing only JS files and ignoring the output file': function (result) {            
-            assert.equal(result, "'abc/file3.js', 'abc/file4.js', '/file5.js', 'abc/def/ghi/file6.js'");
+            assert.equal(result, "'/file5.js', 'abc/def/ghi/file6.js', 'abc/file3.js', 'abc/file4.js'");
         },
     }
 }).run();

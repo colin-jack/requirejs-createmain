@@ -3,7 +3,7 @@ var vows = require('vows'),
     MainFileGenerator = require('../lib/MainFileGenerator'),
     fs = require('fs');
 
-var directoryContainingJsFiles = __dirname + "/simpleRequireRoot";
+var directoryContainingJsFiles = __dirname + "/../spec-files/simpleRequireRoot";
 var outputFileName = "main.js";
 var outputFilePath = directoryContainingJsFiles + "/" + outputFileName;
  
@@ -31,4 +31,4 @@ vows.describe('generate require file for all files in directory (integration)').
                         "require(['requireSubDir1/definesFunction1.js', 'requireSubDir1/requireSubDir2/definesFunction2.js', 'requireSubDir1/requireSubDir2/definesFunction4.js', 'requireSubDir3/definesFunction3.js']);");
         }
     }
-}).run();
+}).export(module);
