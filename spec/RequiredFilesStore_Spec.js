@@ -5,8 +5,9 @@ var vows = require('vows'),
 vows.describe('add some js and some other files to required files store').addBatch({
     'when asking for require string': {
         topic: function () { 
-            var underTest = new RequiredFilesStore();
+            var underTest = new RequiredFilesStore("main.js");
 
+            underTest.saveFileDetails("main.js");
             underTest.saveFileDetails("abc/file1.txt");
             underTest.saveFileDetails("abc/file1.txt");
             underTest.saveFileDetails("abc/def/file5.j");
@@ -20,7 +21,7 @@ vows.describe('add some js and some other files to required files store').addBat
             return underTest.getRequireStatementsString();
         },
 
-        'should generate the correct require string containing only JS files': function (result) {            
+        'should generate the correct require string containing only JS files and ignoring the output file': function (result) {            
             assert.equal(result, "'abc/file3.js', 'abc/file4.js', '/file5.js', 'abc/def/ghi/file6.js'");
         },
     }
