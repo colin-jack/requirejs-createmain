@@ -28,7 +28,7 @@ vows.describe('generate require file for all files in directory (integration)').
 
         'should have created the file with expexcted content': function (err, fileContents) {
             assert.equal(fileContents, 
-                        "require(['requireSubDir1/definesFunction1.js', 'requireSubDir3/definesFunction3.js', 'requireSubDir1/requireSubDir2/definesFunction4.js', 'requireSubDir1/requireSubDir2/definesFunction2.js']);");
+                        "require(['requireSubDir1/definesFunction1.js', 'requireSubDir1/requireSubDir2/definesFunction2.js', 'requireSubDir1/requireSubDir2/definesFunction4.js', 'requireSubDir3/definesFunction3.js']);");
         }
     }
 }).run();
