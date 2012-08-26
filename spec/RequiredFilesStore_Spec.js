@@ -3,7 +3,7 @@ var vows = require('vows'),
     RequiredFilesStore = require('../lib/RequiredFilesStore');
 
 vows.describe('add some js and some other files to required files store').addBatch({
-    'when askng for require string': {
+    'when asking for require string': {
         topic: function () { 
             var underTest = new RequiredFilesStore();
 
