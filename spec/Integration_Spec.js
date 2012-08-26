@@ -12,7 +12,6 @@ vows.describe('generate require file for all files in directory (integration)').
         topic: function () { 
             var onFileGenerated = function() {
                 var writtenToFile = fs.readFileSync(outputFilePath, "utf8");
-                console.log(writtenToFile);
                 this.callback(writtenToFile);
             }.bind(this);
 
@@ -20,8 +19,8 @@ vows.describe('generate require file for all files in directory (integration)').
             underTest.generate(onFileGenerated);
         },
 
-        'should have created the file': function (result) {
-            assert.isFalse("errno" in result);
+        'should have created the file with expexcted content': function (fileContents) {
+            assert.equal(fileContents, "require(['main.js', 'requireSubDir1/definesFunction1.js', 'requireSubDir3/definesFunction3.js', 'requireSubDir1/requireSubDir2/definesFunction4.js', 'requireSubDir1/requireSubDir2/definesFunction2.js']);");
         },
         
         // 'the main.js starts out with a require statement': function (err, result) {
