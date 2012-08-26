@@ -1,6 +1,6 @@
 var vows = require('vows'),
 	assert = require('assert'),
-    underTest = require('../index'),
+    MainFileGenerator = require('../lib/MainFileGenerator'),
     fs = require('fs');
 
 var directoryContainingJsFiles = __dirname + "/simpleRequireRoot";
@@ -10,9 +10,15 @@ var outputFilePath = __dirname + "/" + outputFileName;
 vows.describe('generate require file for all files in directory (integration)').addBatch({
     'when generating main require file for a simple directory structure': {
         topic: function () { 
-            underTest.generateFile(directoryContainingJsFiles, outputFileName, this.callback);
+            var onFileGenerated = function() {
+                console.log("**************************sadsdaasdasdasdadsadsasdads");
+                debugger;
+                var writtenToFile = fs.readFileSync(outputFilePath);
+                this.callback(writtenToFile);
+            };
 
-            return fs.readFileSync(outputFilePath);
+            var underTest = new MainFileGenerator(directoryContainingJsFiles, outputFileName)
+            underTest.generate(onFileGenerated);
         },
 
         'should not get an error': function (err, result) {            
